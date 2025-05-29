@@ -1,13 +1,32 @@
 const { decay, spring, tween } = window.popmotion;
 
+// Helper to handle refresh logic and retry
+async function safeFetch(url) {
+  let res = await fetch(url);
+
+  // If unauthorized, try refreshing the token
+  if (res.status === 401) {
+    console.warn("Access token expired. Attempting to refresh...");
+    const refreshRes = await fetch('/refresh_token');
+    if (refreshRes.ok) {
+      res = await fetch(url); // Retry original request
+    } else {
+      alert("Session expired. Please log in again.");
+      return null;
+    }
+  }
+
+  return res.json();
+}
+
 async function fetchAlbums() {
   const res = await fetch(`http://127.0.0.1:8080/me/albums`);
   const data = await res.json();
   const container = document.getElementById('album-container');
   container.innerHTML = '';
 
-  // if (!data.items) {
-  //   console.error('Spotify returned no items:', data);
+  // if (!data || !data.items) {
+  //   document.getElementById('album-container').innerHTML = '<p>Unable to load albums.</p>';
   //   return;
   // }
 
