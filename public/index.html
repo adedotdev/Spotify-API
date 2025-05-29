@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Spotify API Project</title>
+    <link rel="stylesheet" href="./styles/style.css"/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+      <a class="navbar-brand" href="#">Spotify App</a>
+      <ul class="navbar-nav ms-auto d-flex flex-row gap-3">
+        <li class="nav-item"><a class="nav-link" href="#album">Albums</a></li>
+        <li class="nav-item"><a class="nav-link" href="#song">Songs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#artist">Artists</a></li>
+      </ul>
+    </nav>
+
+    <!-- Centered intro -->
+    <div class="text-center my-4">
+      <h1><strong>Spotify Data Viewer</strong></h1>
+      <p class="lead">Click below to load your data from Spotify</p>
+      <button class="btn btn-primary btn-lg" onclick="fetchAlbums()">Load My Albums</button>
+      <button class="btn btn-success btn-lg" onclick="fetchTopTracks()">Top Songs</button>
+      <button class="btn btn-warning btn-lg" onclick="fetchTopArtists()">Top Artists</button>
+    </div>
+
+    <!-- Album Section -->
+    <section id="album" class="container my-5">
+      <h2 class="mb-3">Your Albums</h2>
+      <div id="album-container" class="row g-4"></div>
+    </section>
+
+    <!-- Song Section -->
+    <section id="song" class="container my-5">
+      <h2 class="mb-3">Top Tracks</h2>
+      <div id="song-container" class="row g-4"></div>
+    </section>
+
+    <!-- Artist Section -->
+    <section id="artist" class="container my-5">
+      <h2 class="mb-3">Top Artists</h2>
+      <div id="artist-container" class="row g-4"></div>
+    </section>
+
+    <script type="module" src="./src/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popmotion@8.7.5/dist/popmotion.global.min.js"></script>
+  </body>
+</html>

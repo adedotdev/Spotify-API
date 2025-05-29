@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.album-card, .song-card, .artist-card {
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.album-card img,
+.song-card img,
+.artist-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.album-card:hover,
+.song-card:hover,
+.artist-card:hover {
+  transform: scale(1.05);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
